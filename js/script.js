@@ -38,7 +38,7 @@ function getBmi() {
         let category_solution;
         let category_disease = [];
 
-        console.log(bmi);
+        
         //Display the Result and round it to one decimal number
         document.getElementById("result").innerHTML = bmi.toFixed(1);
 
@@ -84,7 +84,6 @@ function getBmi() {
 
         //Result Explanation Section
         document.getElementById("category-title").innerHTML = category_title;
-        console.log(category_explanation)
         document.getElementById("category-explanation").innerHTML = category_explanation;
         document.getElementById("category-solution").innerHTML = category_solution;
 
