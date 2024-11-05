@@ -310,6 +310,11 @@ footer{
         flex-direction: column;
         align-items: center;
     }
+    .redirect-button{
+        font-size: large;
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 768px) {
