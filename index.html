@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
     <title>BMI Calculator</title>
+    <script src="./js/script.js"></script>
 </head>
 <body>
     <main>
         <!---->
         <section>
             <div class="head">
-                
                 <header class="text-center">
                     <h1>Kalkulator <span class="green">BMI</span></h1>
                 </header>
                 <img src="./assets/measure.png" alt="measure" class="med-img">
-                <article class="text-center justify-center">
-                    <p>
+                <article class="text-center justify-center" id="introduction">
+                    <p class="align-center">
                         Ingin tahu apakah berat badan Anda sudah ideal? Gunakan kalkulator BMI kami untuk memeriksa indeks massa tubuh Anda 
                         dan dapatkan informasi mengenai kategori berat badan yang sesuai dengan hasil BMI Anda. Masukkan Jenis kelamin, berat, usia dan tinggi 
                         badan Anda, dan kami akan membantu Anda mengetahui lebih lanjut tentang kondisi kesehatan Anda!
@@ -26,33 +26,20 @@
                 </article>
             </div>
            <div class="text-center">
+            <!-- form section -->
             <form action="" id="form-wrapper">
                 <div class="form-input-group">
                     <label for="gender" class="form-label">Jenis Kelamin</label>
-                    <div class="form-radiobutton-group">
-                        <input 
-                            type="radio" 
-                            id="gender" 
-                            name="gender"  
-                            class="form-input-radioButton" 
-                            value="Pria">
-                        <label for="Pria" class="form-label">Pria</label>
-                    </div>
-                    <div class="form-radiobutton-group">
-                        <input 
-                            type="radio" 
-                            id="gender" 
-                            name="gender"  
-                            class="form-input-radioButton" 
-                            value="Wanita">
-                        <label for="Wanita" class="form-label">Wanita</label>
-                    </div>  
+                    <select id="getGender" name="gender">
+                        <option value="male">Pria</option>
+                        <option value="female">Wanita</option>
+                    </select>  
                 </div>
                 <div class="form-input-group">
                     <label for="weight" class="form-label">Berat Badan (Kg)</label>
                     <input 
                         type="number" 
-                        id="weight" 
+                        id="getWeight" 
                         name="weight"  
                         class="form-input" 
                         placeholder="Masukkan Berat Badan">      
@@ -61,7 +48,7 @@
                     <label for="age" class="form-label">Usia (tahun)</label>
                     <input 
                         type="number" 
-                        id="age" 
+                        id="getAge" 
                         name="age" 
                         class="form-input" 
                         placeholder="Masukkan Umur">
@@ -70,63 +57,114 @@
                     <label for="height" class="form-label">Tinggi badan (cm)</label>
                     <input 
                         type="number" 
-                        id="height" 
+                        id="getHeight" 
                         name="height" 
                         class="form-input" 
                         placeholder="Masukkan Tinggi Badan">
                 </div>
                 <div class="form-button-group">
-                    <button>Hitung BMI</button>
+                    <button type="button" onclick="getBmi()"><a href="#result-section-group">Hitung BMI</a></button>
                     <button>Reset</button>
                 </div>
             </div>
             </form>
 
-            <div class="headerText-subText">
-                <header class="text-center">
-                    <h2>Informasi <span class="green">Tambahan</span></h2>
-                </header>
-    
-                <article class="read-text content-center">
+            <div class="headerText-subText-row">
+                <article class="read-text content-center flex1">
+                    <header class="text-center">
+                        <h2>Apa itu <span class="green">BMI?</span></h2>
+                    </header>
                     <p>BMI, atau Body Mass Index (Indeks Massa Tubuh), adalah perhitungan matematis yang digunakan untuk menilai apakah berat badan 
                         seseorang seimbang dengan tinggi badannya. Berdasarkan 
                         <a href="https://www.halodoc.com/artikel/catat-begini-cara-hitung-berat-badan-ideal-yang-tepat?
                         srsltid=AfmBOorVECo7S7LcGCowQZvv7scBxSBIA4PkbN2-LxwMyOS44PHTlKB9">sumber terpercaya</a>, Rumus dasar BMI adalah:</p>
 
                     <img src="./assets/BMI-Equation.png" alt="BMI_Equation" class="tiny-img">
-                        
                     <p>Hasil dari perhitungan ini menghasilkan angka yang digunakan untuk mengategorikan berat badan seseorang, apakah berada dalam 
                         kategori kekurangan berat badan, normal, kelebihan berat badan, atau obesitas.</p>
-                </article>
 
-                
+                </article>
+                <br>
+                <article class="read-text flex1">
+                    <header class="text-center">
+                        <h2>Keunggulan <span class="green">Fitur</span></h2>
+                    </header>
+                    <p>BMI berfungsi sebagai alat skrining untuk mengidentifikasi risiko kesehatan terkait berat badan. Keunggulannya meliputi:</p>
+                    <br>
+                    <ul>
+                        <li>Mengukur Status Berat Badan</li>
+                        <li>Mengidentifikasi Risiko Kesehatan</li>
+                        <li>Panduan Gaya Hidup dan Kesehatan</li>
+                    </ul>  
+                </article>
             </div>
             
         </section>
-
-  
+        
+        <br>
         <!-- Section Result -->
-        <section>
-            <header>
-                <h2>Hasil</h2>
-            </header>
-            
-            <!-- Hasil Kalkulasi -->
-            <div class="color-section">
-                <h4>Hasil Kalkulasi</h4>
-                <p id="result">24.5</p>
-            </div>
 
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa rerum ipsum necessitatibus omnis illo maiores dolores possimus consequatur deserunt corporis, nisi tempora non pariatur totam ex? Eius, delectus odio. Possimus.</p>
-            </article>
+        <section class="text-center redirect" id="redirect-bmi">
+            <button class="redirect-button" onclick="highlight()"><a href="#introduction">Coba Kalkulator BMI Sekarang</a></button>
+        </section>
+        <section class="hidden" id="result-section-group">
+            <br>
+            <hr>
+            <div class="headerText-subText">
+                <header class="text-center">
+                    <h2>Hasil</h2>
+                </header>
+                
+                <!-- Hasil Kalkulasi -->
+                <div class="result-section">
+                    <h4 id="category">Kekurangan Berat Badan</h4>
+                    <p id="result">16.5</p>
+                    <p id="category-detail">Anda Memiliki berat badan rendah</p>
+                </div>
+            </div>
+            <div class="headerText-subText-row">
+                <article class="flex1">
+                    <h4>Hasil BMI anda <span class="green">dibawah 18.5</span></h4>
+                    <br>
+                    <p>Anda dikategorikan dalam kekurangan berat badan atau underweight. Ini berarti berat badan anda lebih rendah dari 
+                        kisaran yang dianggap sehat untuk tinggi badannya</p>  
+                    <br>
+                    <h4>Apa yang anda <span class="green">dapat lakukan?</span></h4>
+                    <br>
+                    <p>
+                        <ul>
+                            <li> Fokus pada makanan tinggi protein, lemak sehat, karbohidrat kompleks, dan vitamin/mineral.</li>
+                            <li>Mengonsumsi makanan dalam porsi kecil tetapi sering bisa membantu.</li>
+                            <li>Jika kekurangan berat badan disebabkan oleh masalah kesehatan atau gangguan makan, sebaiknya 
+                                mendapatkan penanganan dari profesional.</li>
+                        </ul>
+                    </p>
+                    
+                    
+                </article>
+
+                <article class="flex1 text-center">
+                    <a target="_blank" href="https://fahum.umsu.ac.id/blog/cara-menghitung-bmi-panduan-praktis-untuk-menilai-indeks-massa-tubuh-anda/">
+                        <img src="./assets/bmi-category.png" alt="bmi-classification" class="lg-img">
+                    </a>
+                </article>
+            </div>
         </section>
      
     </main>
 
     <section>
-        <footer >
-            <span>Made By Someone</span>
+        <footer>
+            <h4>Download Aplikasi</h4>
+            <div class="download-link">
+                <a href="https://play.google.com/store/apps?hl=id">
+                    <img src="./assets/Play Store Link.png" alt="play-store" class="tiny-img">
+                </a>
+                <a href="https://www.apple.com/id/app-store/">
+                    <img src="./assets/Apple Store Link.png" alt="Apple-Store"class="tiny-img">
+                </a>
+            </div>
+            <p>Made By Someone</p>
         </footer>
     </section>
     
