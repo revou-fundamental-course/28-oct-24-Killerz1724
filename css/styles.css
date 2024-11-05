@@ -1,3 +1,5 @@
+
+
 *{
     margin: 0;
     padding: 0;
@@ -70,7 +72,7 @@ h1 span {
     gap: 10px;
 }
 
-#gender {
+#getGender {
     padding-left: 10px;
 }
 
@@ -159,7 +161,7 @@ button:hover{
     border-radius: 10px;
     width: 50%;
     height: 4rem;
-    font-size: 1.5vw;
+    font-size: x-large;
     font-weight: 700;
 }
 
@@ -213,8 +215,14 @@ h2{
     width: 80%;
 }
 
+.consultation-button {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
 .read-text{
-    font-size: 1.1vw;
+    font-size: large;
 }
 
 .flex1{
@@ -234,6 +242,22 @@ a{
     font-weight: 600;
 }
 
+.link-button {
+    color: white;
+    text-decoration: none;
+    background-color: #53AD8A;
+    padding: 10px 20px;
+    border: 0px;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.link-button:hover {
+    background-color: #62c9a1;
+    cursor: pointer;
+    transition: 200ms;
+}
+
 p {
     text-align: justify;
 }
@@ -251,6 +275,10 @@ li{
     padding-left: 20px;
 }
 
+select {
+    border-radius: 7px;
+}
+
 section{
     width: 100%;
 }
@@ -259,14 +287,102 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem 0 2rem 0;
+    padding: 2rem 0 2rem 0;
     
 }
+
+#appStore:hover, #playStore:hover{
+    background-color: rgba(180, 177, 177, 0.685);
+    border: 0px;
+    border-radius: 10px;
+    transition: 0.3s;
+} 
 
 .download-link{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
+}
+
+
+@media (max-width: 768px) {
+
+    .redirect-button{
+        font-size: large;
+        width: 80%;
+    }
+
+    .headerText-subText-row{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .head article {
+        font-size: medium;
+        max-width: 100%;
+    }
+
+    input {
+        font-size: x-small;
+    }
+
+    #form-wrapper{
+        padding: 1rem 1rem;
+    }
+
+    .form-input{
+        height: 1rem;
+    }
+
+    .form-label {
+        font-size: small;
+    }
+
+    button{
+        font-size: x-small;
+    }
+
+    .headerText-subText-row{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .read-text{
+        font-size: medium;
+    }
+
+    .redirect-button{
+        font-size: small;
+        width: 100%;
+    }
+
+    .download-link{
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .lg-img{
+        width: 20rem;
+    }
+
+    .consultation-button{
+        flex-direction: column;
+    }
+    .link-button{
+        font-size: medium;
+        text-align: center;
+    }
+
+    .result-section h4, .result-section p{
+        text-align: center;
+    }
 }
 

@@ -10,7 +10,7 @@
 </head>
 <body>
     <main>
-        <!---->
+        <!--Header Section-->
         <section>
             <div class="head">
                 <header class="text-center">
@@ -28,6 +28,7 @@
            <div class="text-center">
             <!-- form section -->
             <form action="" id="form-wrapper">
+                <!-- gender input -->
                 <div class="form-input-group">
                     <label for="gender" class="form-label">Jenis Kelamin</label>
                     <select id="getGender" name="gender">
@@ -35,15 +36,18 @@
                         <option value="female">Wanita</option>
                     </select>  
                 </div>
+                <!-- weight input -->
                 <div class="form-input-group">
                     <label for="weight" class="form-label">Berat Badan (Kg)</label>
                     <input 
                         type="number" 
                         id="getWeight" 
                         name="weight"  
-                        class="form-input" 
+                        class="form-input"
+                        required 
                         placeholder="Masukkan Berat Badan">      
                 </div>
+                <!-- age input -->
                 <div class="form-input-group">
                     <label for="age" class="form-label">Usia (tahun)</label>
                     <input 
@@ -53,23 +57,27 @@
                         class="form-input" 
                         placeholder="Masukkan Umur">
                 </div>
+                <!-- heightinput -->
                 <div class="form-input-group">
                     <label for="height" class="form-label">Tinggi badan (cm)</label>
                     <input 
                         type="number" 
                         id="getHeight" 
                         name="height" 
-                        class="form-input" 
-                        placeholder="Masukkan Tinggi Badan">
+                        class="form-input"
+                        placeholder="Masukkan Tinggi Badan"
+                        required >
                 </div>
+                <!-- submit button -->
                 <div class="form-button-group">
-                    <button type="button" onclick="getBmi()"><a href="#result-section-group">Hitung BMI</a></button>
-                    <button>Reset</button>
+                    <button type="submit" onclick="getBmi()">Hitung BMI</button>
+                    <button onclick="resetForm()">Reset</button>
                 </div>
             </div>
             </form>
-
+            <!-- Text About BMI -->
             <div class="headerText-subText-row">
+                <!-- BMI Definition-->
                 <article class="read-text content-center flex1">
                     <header class="text-center">
                         <h2>Apa itu <span class="green">BMI?</span></h2>
@@ -82,9 +90,9 @@
                     <img src="./assets/BMI-Equation.png" alt="BMI_Equation" class="tiny-img">
                     <p>Hasil dari perhitungan ini menghasilkan angka yang digunakan untuk mengategorikan berat badan seseorang, apakah berada dalam 
                         kategori kekurangan berat badan, normal, kelebihan berat badan, atau obesitas.</p>
-
                 </article>
                 <br>
+                <!-- BMI Feature -->
                 <article class="read-text flex1">
                     <header class="text-center">
                         <h2>Keunggulan <span class="green">Fitur</span></h2>
@@ -102,45 +110,50 @@
         </section>
         
         <br>
-        <!-- Section Result -->
 
+        <!-- Section Result -->
         <section class="text-center redirect" id="redirect-bmi">
-            <button class="redirect-button" onclick="highlight()"><a href="#introduction">Coba Kalkulator BMI Sekarang</a></button>
+            <button class="redirect-button" onclick="highlight()">Coba Kalkulator BMI Sekarang</button>
         </section>
         <section class="hidden" id="result-section-group">
             <br>
             <hr>
+            <!-- Calculation Result -->
             <div class="headerText-subText">
                 <header class="text-center">
                     <h2>Hasil</h2>
                 </header>
-                
-                <!-- Hasil Kalkulasi -->
-                <div class="result-section">
+                <div class="result-section" id="result-group-box">
                     <h4 id="category">Kekurangan Berat Badan</h4>
                     <p id="result">16.5</p>
                     <p id="category-detail">Anda Memiliki berat badan rendah</p>
                 </div>
             </div>
+            <!-- Explanation Result -->
             <div class="headerText-subText-row">
                 <article class="flex1">
-                    <h4>Hasil BMI anda <span class="green">dibawah 18.5</span></h4>
+                    <!-- Result title -->
+                    <h4>Hasil BMI anda <span class="green" id="category-title">dibawah 18.5</span></h4>
                     <br>
-                    <p>Anda dikategorikan dalam kekurangan berat badan atau underweight. Ini berarti berat badan anda lebih rendah dari 
-                        kisaran yang dianggap sehat untuk tinggi badannya</p>  
+                    <!-- Result Explanation-->
+                    <p>Anda dikategorikan dalam <span id="category-explanation"></span></p>  
                     <br>
-                    <h4>Apa yang anda <span class="green">dapat lakukan?</span></h4>
+                    <!-- Result Disease -->
+                    <h4>Beberapa Penyakit Berasal dari <span class="green">Hasil BMI Anda</span></h4>
                     <br>
                     <p>
-                        <ul>
-                            <li> Fokus pada makanan tinggi protein, lemak sehat, karbohidrat kompleks, dan vitamin/mineral.</li>
-                            <li>Mengonsumsi makanan dalam porsi kecil tetapi sering bisa membantu.</li>
-                            <li>Jika kekurangan berat badan disebabkan oleh masalah kesehatan atau gangguan makan, sebaiknya 
-                                mendapatkan penanganan dari profesional.</li>
-                        </ul>
+                        <ul id="category-disease"></ul>
                     </p>
-                    
-                    
+                    <br>
+                    <!-- Result Solution -->
+                    <h4>Apa yang anda <span class="green">dapat lakukan?</span></h4>
+                    <br>
+                    <p id="category-solution"></p>
+                    <!-- Result Button -->
+                    <div class="consultation-button">
+                        <a class="link-button">Konsultasi Ahli Gizi Via Aplikasi</a>
+                        <a class="link-button">Registrasi Online Ahli Gizi</a>
+                    </div>
                 </article>
 
                 <article class="flex1 text-center">
@@ -152,16 +165,16 @@
         </section>
      
     </main>
-
+    <!-- Footer Section -->
     <section>
         <footer>
             <h4>Download Aplikasi</h4>
             <div class="download-link">
                 <a href="https://play.google.com/store/apps?hl=id">
-                    <img src="./assets/Play Store Link.png" alt="play-store" class="tiny-img">
+                    <img src="./assets/Play Store Link.png" alt="play-store" class="tiny-img" id="playStore">
                 </a>
-                <a href="https://www.apple.com/id/app-store/">
-                    <img src="./assets/Apple Store Link.png" alt="Apple-Store"class="tiny-img">
+                <a href="https://www.apple.com/id/app-store/" >
+                    <img src="./assets/Apple Store Link.png" alt="Apple-Store"class="tiny-img" id="appStore">
                 </a>
             </div>
             <p>Made By Someone</p>
