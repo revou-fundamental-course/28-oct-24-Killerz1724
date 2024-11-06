@@ -11,11 +11,11 @@ function checkValidity(params){
 function getBmi() {
 
     //Get the Value from Form
-    const gender =document.getElementById("getGender").value;
-    const age = document.getElementById("getAge").value;
-    const weight = document.getElementById("getWeight").value;
+    const gender =document.getElementById("get-gender").value;
+    const age = document.getElementById("get-age").value;
+    const weight = document.getElementById("get-weight").value;
     //Divide 100 to turn in to m
-    const height = (document.getElementById("getHeight").value)/100;
+    const height = (document.getElementById("get-height").value)/100;
 
     // check for input
     if(checkValidity(gender) && checkValidity(age) && checkValidity(weight) && checkValidity(height)){
@@ -30,7 +30,7 @@ function getBmi() {
         resultSection.scrollIntoView({behavior: "smooth"});
 
         //Calculate BMI User
-        let bmi = weight/(height^2);
+        let bmi = weight/(height**2);
         let category;
         let category_color;
         let category_title;
@@ -102,7 +102,10 @@ function getBmi() {
         });
 
     } else {
+
         alert("Please Fill All The Forms");
+           // Prevent Page Reload
+           event.preventDefault();
     }
     
 }
