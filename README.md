@@ -1,5 +1,5 @@
 ## BMI Calculator Website
-This is a mini project using HTML, CSS, and Javascript
+An interactive and responsive BMI (Body Mass Index) Calculator using HTML, CSS, and JavaScript. This web app allows users to calculate their BMI by simply entering their height and weight, delivering instant feedback on their health status
 
 ### Live Page link
 https://revou-fundamental-course.github.io/28-oct-24-Killerz1724/
